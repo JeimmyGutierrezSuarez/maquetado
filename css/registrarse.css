@@ -1,0 +1,99 @@
+/*Tipografia*/
+@import url('https://fonts.googleapis.com/css2? family= Cinzel:wght@500 & family= Cormorant:wght@500 & family= Crimson+Text:ital,wght@1,600 & display= intercambio');
+@import url('https://fonts.googleapis.com/css2? family= Cinzel:wght@500 & family= Cormorant:wght@500 & family= Crimson+Text:ital,wght@1,600 & display= intercambio');
+
+/*Estilos generales*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url(/img/registrar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 70px;
+}
+
+/*Contenido formulario registro*/
+.login-container {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    max-width: 400px;
+    margin: 0;
+    margin-top: -180px;
+    padding: 30px;
+    margin-bottom: -40px;
+    border: 3px solid #feffc0;
+    border-radius: 5px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: 'Cinzel', serif;
+    color:rgb(253, 255, 115);
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 13px;
+    text-align: center;
+    font-size: 17px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: rgb(6, 6, 6);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    margin-left: 70px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(229, 255, 99);
+}
+
+h2{
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 103);
+}  
+
+.enviar{
+  background-color: rgb(244, 255, 188);
+  border-radius: 15px;
+  font-size: 16px;
+  width: 38%;
+  margin-left: 130px;
+  margin-top: 15px;
+  transition: ease;
+  opacity: 0,8;
+  color: black;
+}
+
+.enviar:hover{
+  opacity: 1;
+}
+
+.regresa a{
+    text-decoration: none;
+    font-size: 17px;
+    color: yellow;
+}
+
+.regresa{
+    text-align: center;
+    margin-top: 8px;
+    padding-left: 20px;
+}

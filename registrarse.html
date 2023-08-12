@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="/img/gato.jpg">
+    <link rel="stylesheet" href="css/registrarse.css">
+    <title>Registrarse</title>
+</head>
+<!--Funciones de validación de formulario Registro-->  
+<script>
+    function validateForm() {
+      const tipoDocument = formulario.tipoDocumento.value;
+      const documento = formulario.documento.value;  
+      const nombreCompleto = formulario.nombreCompleto.value;
+      const email = document.getElementById("email").value;
+      const telefono = formulario.telefono.value;
+      const password = document.getElementById("password").value;
+
+      var numeros1= /[1-999999999999]/g
+      var telefono1= /[a-z]/g
+      var telefono2= /[A-Z]/g
+      var numeros=[1,2,3,4,5,6,7,8,9,10] 
+      var minusculas=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z']
+      var mayusculas=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+        /*Validacion campo tipo Documento*/
+        if(!tipoDocument.includes(numeros) && tipoDocument != 'Tarjeta identidad' && tipoDocument!='TARJETA IDENTIDAD' && tipoDocument != 'TI' && 
+        tipoDocument!="CC" && tipoDocument!="Cedula de ciudadania" && tipoDocument!="Cedula de ciudadania" && tipoDocument!= "permiso" && 
+        tipoDocument!="Permiso" && tipoDocument != "Pasaporte" && tipoDocument != "pasaporte"){
+        
+            Swal.fire({
+            icon: "error",
+            title: 'Oops...',
+            text: 'Tienes que ingresar el tipo de documento sin numeros, adicionalmente uno que sea valido en Colombia',
+            
+        })
+        
+        return false;
+        }
+        /*Validacion campo Numero Documento*/
+        else if (!documento.match(numeros1)) {
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El numero de documento debe contener numeros',
+            
+        })
+        
+        return false;
+      
+      }
+
+      else if (documento.length<7 || documento.length>10){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El numero de documento debe ser de 10 digitos',
+            
+        })
+
+        return false;
+      }
+
+      /*Validacion campo Nombre Completo*/
+      else if(nombreCompleto.match(numeros1)){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El nombre no debe contener numeros',
+            
+        })
+
+        return false;
+    }
+
+      else if (nombreCompleto.length<10 || nombreCompleto.length>25){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El nombre debe de ser de mas de 10 caracteres',
+            
+        })
+
+        return false;
+      }
+
+      /*Validacion campo Telefono*/
+      else if (telefono.match(telefono1) || telefono.match(telefono2)){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El telefono debe contener numeros',
+            
+        })
+
+        return false;
+      }
+
+      else if (telefono.length<4 || telefono.length>10){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El telefono dede contener 10 caracteres',
+            
+        })
+
+        return false;
+      }
+    
+      /*Validacion campo Contraseña*/
+      else if (password.length < 8 || password.length>16) {
+      
+       Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La contraseña debe tener al menos 8 caracteres y maximo 15',
+            
+        })
+
+        return false;
+
+      }
+      else {
+        return true
+      }
+    }
+  </script>
+    
+</header>
+<body>
+  
+    <!--Fomulario de registro-->
+  <div class="login-container">
+    <h2>REGISTRARSE</h2>
+    <form name="formulario" onsubmit="return validateForm()"  action="inicioSesion.html">
+      <label for="tipoDocumento">Tipo documento</label>
+      <input type="text" id="tipoDocument" name="tipoDocumento" required>
+      
+      <label for="documento">Numero Documento</label>
+      <input type="text" id="documento" name="documento" required> 
+
+      <label for="nombreCompleto">Nombre Completo</label>
+      <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="telefono">Telefono</label>
+      <input type="text" id="telefono" name="telefono" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" required>
+
+      <button  class="enviar" type="submit"><b>Registrarse</b></button>
+
+      <div class="regresa"><a href="inicioSesion.html">Ya tienes cuenta?</a></div>
+    </form>
+  </div>
+</body>
+</html>
